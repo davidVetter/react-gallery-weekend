@@ -13,12 +13,39 @@
   font-size: 1.5em;
 }
 
+.bodyDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+.addFormDiv {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+  margin: 0 auto;
+  padding-left: 1%;
+  flex: 1 1 0;
+}
+
+.addFormBtnDiv {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.addFormBtn {
+  flex: 1 1 0;
+}
+
 .mainDiv {
   display: grid;
   grid-template-columns: auto auto auto;
   gap: 10px;
   width: 100%;
   margin: 0 auto;
+  flex: 5 1 0;
 }
 
 .descriptionDiv {
@@ -28,6 +55,14 @@
   border: 2px solid black;
 }
 
+#addBtn {
+  width: fit-content;
+  margin: 0 auto;
+  text-align: center;
+  word-break: keep-all;
+}
+
 img {
-  width: 20vw;
+  width: 25vw;
+  border-radius: 7px;
 }
