@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import './App.css';
 import { useState } from 'react';
 import GalleryList from '../GalleryList/GalleryList';
+import Header from '../Header/Header';
 
 
 function App() {
@@ -9,12 +10,8 @@ function App() {
 
     return (
       <div className="App">
-        <header className="App-header">
-          <h1 className="App-title">Gallery of My Life</h1>
-        </header>
+        <Header />
         <GalleryList galleryList={galleryList} setGalleryList={setGalleryList}/>
-        {/* <p>Gallery goes here</p>
-        <img src="images/goat_small.jpg"/> */}
       </div>
     );
 }
