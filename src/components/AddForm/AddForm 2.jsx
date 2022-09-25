@@ -71,8 +71,8 @@ function AddForm(props) {
                 onChange={(event) => setNewDescription(event.target.value)}>
             </input>
             <div className="addFormBtnDiv">
-                <button className='addFormBtn addBtn' onClick={handleSubmit}>Add</button>
-                <button className='addFormBtn cancelBtn' onClick={() => {toggle()}}>Cancel</button>
+                <button className='addFormBtn' onClick={handleSubmit}>Add</button>
+                <button className='addFormBtn' onClick={() => {toggle()}}>Cancel</button>
             </div>
             </>
             
@@ -80,7 +80,7 @@ function AddForm(props) {
     }  else {
         return (
             <>
-            <button onClick={() => {toggle()}} className="addBtn">
+            <button onClick={() => {toggle()}} id="addBtn">
                 {addIcon}<br />Add Photo
             </button>
             </>

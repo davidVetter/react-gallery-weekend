@@ -13,6 +13,24 @@
   font-size: 1.5em;
 }
 
+body {
+  background-color: aqua;
+  animation: fadeBackground infinite 6s;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fadeBackground {
+  0% {
+    background-color: darkcyan;
+  }
+  50% {
+    background-color: aqua;
+  }
+  100% {
+    background-color: darkcyan;
+  }
+}
+
 .bodyDiv {
   display: flex;
   flex-direction: row;
@@ -32,11 +50,15 @@
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: center;
   width: 100%;
+  margin-top: 5px;
 }
 
 .addFormBtn {
   flex: 1 1 0;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.8);
 }
 
 .mainDiv {
@@ -55,14 +77,88 @@
   border: 2px solid black;
 }
 
-#addBtn {
+.imgDiv {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.addBtn {
   width: fit-content;
   margin: 0 auto;
   text-align: center;
   word-break: keep-all;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.8);
+}
+
+.addBtn:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), -1px -1px 5px rgba(255, 255, 255, 0.8), inset 2px 2px 4px rgba(0, 0, 0, 0.25), inset -2px -2px 5px rgba(255, 255, 255, 0.9);;
+  color: green;
+  border: 5px solid green;
+}
+
+.cancelBtn:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), -1px -1px 5px rgba(255, 255, 255, 0.8), inset 2px 2px 4px rgba(0, 0, 0, 0.25), inset -2px -2px 5px rgba(255, 255, 255, 0.9);;
+  color: red;
+  border: 5px solid red;
+}
+
+.likeDeleteBtn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.8);
+  padding: 5px 15px;
+  border-radius: 9999px;
+  animation: fadeBackground infinite 6s;
+  animation-fill-mode: forwards;
+}
+
+.likeDeleteBtn:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), -1px -1px 5px rgba(255, 255, 255, 0.8), inset 2px 2px 4px rgba(0, 0, 0, 0.25), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;
+  padding: 5px 15px;
+}
+
+button {
+  border-radius: 9999px;
+  padding: 5px 15px;
+  background-color: inherit;
+  border: none;
+}
+
+button:hover {
+  box-shadow: -5px -5px 10px rgba(255, 255, 255, 0.8),
+  5px, 5px, 10px rgba(0, 0, 0, 0.25);
+  cursor: pointer;
+}
+
+#heartBtn {
+  color: palevioletred;
+}
+
+#heartBtn:hover {
+  border: 5px solid palevioletred;
+}
+
+#trashBtn {
+  color: red;
+}
+
+#trashBtn:hover {
+  border: 5px solid red;
 }
 
 img {
   width: 25vw;
   border-radius: 7px;
+  box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.25), -5px -5px 10px rgba(255, 255, 255, 0.8);
+  border: 3px outset rgba(0, 0, 0, 0.5);
+  animation: fadeIn 5s;
+}
+
+img:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), -1px -1px 5px rgba(255, 255, 255, 0.8), inset 2px 2px 4px rgba(0, 0, 0, 0.25), inset -2px -2px 5px rgba(255, 255, 255, 0.9);
 }
