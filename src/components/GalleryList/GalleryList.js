@@ -1,6 +1,7 @@
 import Axios from "axios";
 import GalleryItem from "../GalleryItem/GalleryItem";
 import {useEffect} from 'react';
+import AddForm from "../AddForm/AddForm";
 
 function GalleryList(props) {
     
@@ -18,11 +19,16 @@ function GalleryList(props) {
 
     return (
         <>
-        <div className="mainDiv">
-            {props.galleryList.map((item) => (
-                <GalleryItem key={item.id} item={item} getGallery={getGallery}/>
-            )
-            )}
+        <div className="bodyDiv">
+            <div className="addFormDiv">
+                <AddForm getGallery={getGallery}/>
+            </div>
+            <div className="mainDiv">
+                {props.galleryList.map((item) => (
+                    <GalleryItem key={item.id} item={item} getGallery={getGallery}/>
+                )
+                )}
+            </div>
         </div>
         </>
     )

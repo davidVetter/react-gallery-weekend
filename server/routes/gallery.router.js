@@ -39,4 +39,18 @@ router.get('/', (req, res) => {
     //res.send(galleryItems).status(200);
 }); // END GET Route
 
+router.post('/', (req, res) => {
+    const photoToAdd = req.body;
+    const query = `INSERT INTO "gallery" ("path", "title", "description")
+                   VALUES ($1, $2, $3);`;
+    pool.query(query, [photoToAdd.path, photoToAdd.title, photoToAdd.description])
+        .then(() => {
+            res.sendStatus(201);
+        })
+        .catch((error) => {
+            console.log("Error in POST: ", error);
+            res.sendStatus(500);
+        });
+}); // END POST ROUTE
+
 module.exports = router;
