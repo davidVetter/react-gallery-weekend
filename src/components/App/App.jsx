@@ -12,6 +12,9 @@ function App() {
       <div className="App">
         <Header />
         <GalleryList galleryList={galleryList} setGalleryList={setGalleryList}/>
+        <footer>
+          <div className="footDiv"></div>
+        </footer>
       </div>
     );
 }

@@ -54,7 +54,7 @@ function GalleryItem(props) {
 
     if (!toggleDescription) {
     return (
-        <div>
+        <div className="imgTile">
             <div key={props.item.id} onClick={() => {toggle()}}>
                 <img key={props.item.id} src={props.item.path}></img><br />
             </div>
