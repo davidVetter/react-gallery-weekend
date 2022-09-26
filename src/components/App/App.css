@@ -169,6 +169,14 @@ input {
   border: 5px solid green;
 }
 
+.redBtn {
+  background-color: red;
+}
+
+.redBtn:hover {
+  color: red;
+}
+
 .cancelBtn {
   margin-left: 3px;
 }

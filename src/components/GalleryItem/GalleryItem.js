@@ -47,14 +47,31 @@ function GalleryItem(props) {
 
     // This function performs the DELETE to remove a photo from
     // the database, the photos displayed are refreshed to show the current set
+    // Sweet Alert (library) adds a nice confirmation before deleting photo
     function deletePhoto(id) {
-        Axios({
-            method: "DELETE",
-            url: `/gallery/delete/${id}`
-        }).then(() => {
-            props.getGallery();
-        }).catch((error) => {
-            console.log("Error in DELETE: ", error);
+        swal({
+          title: "Remove Photo?",
+          text: "Are you sure you want to remove this photo?",
+          buttons: {
+            cancel: true,
+            confirm: {
+              text: "Remove",
+              className: "redBtn",
+            },
+          },
+        }).then((result) => {
+          if (result) {
+            Axios({
+              method: "DELETE",
+              url: `/gallery/delete/${id}`,
+            })
+              .then(() => {
+                props.getGallery();
+              })
+              .catch((error) => {
+                console.log("Error in DELETE: ", error);
+              });
+          }
         });
     }
 
