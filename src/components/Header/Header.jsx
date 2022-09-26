@@ -1,3 +1,4 @@
+// This function will display a Header on the DOM
 function Header() {
     return (
         <header className="App-header">

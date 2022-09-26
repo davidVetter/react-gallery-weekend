@@ -160,6 +160,15 @@ input {
   border: 5px solid green;
 }
 
+.submitBtn:hover {
+  box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.25), 
+    -1px -1px 5px rgba(226, 192, 68, 0.8), 
+    inset 2px 2px 4px rgba(0, 0, 0, 0.25), 
+    inset -2px -2px 5px rgba(226, 192, 68, 0.8);
+  color: green;
+  border: 5px solid green;
+}
+
 .cancelBtn {
   margin-left: 3px;
 }
@@ -273,7 +282,6 @@ img:hover {
     width: 100%;
     margin: 0 auto;
     font-size: 4vw;
-    /* flex: 5 1 0; */
   }
 
   .App-title {

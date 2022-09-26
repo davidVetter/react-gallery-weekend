@@ -6,7 +6,7 @@ const pool = require('../modules/pool');
 
 // DO NOT MODIFY THIS FILE FOR BASE MODE
 
-// PUT Route
+// PUT Route - /gallery/like/:id
 router.put('/like/:id', (req, res) => {
     console.log(req.params);
     const galleryId = req.params.id;
@@ -26,7 +26,7 @@ router.put('/like/:id', (req, res) => {
     // res.sendStatus(200);
 }); // END PUT Route
 
-// GET Route
+// GET Route - /gallery
 router.get('/', (req, res) => {
     const query = `SELECT * FROM "gallery" ORDER BY "id" ASC;`;
     pool.query(query)
@@ -40,6 +40,8 @@ router.get('/', (req, res) => {
     //res.send(galleryItems).status(200);
 }); // END GET Route
 
+// This POST is to add a new photo to the database
+// /gallery/
 router.post('/', (req, res) => {
     const photoToAdd = req.body;
     const query = `INSERT INTO "gallery" ("path", "title", "description")
@@ -54,6 +56,8 @@ router.post('/', (req, res) => {
         });
 }); // END POST ROUTE
 
+// This DELETE will remove a photo from the database based on ID passed
+// as a param - /gallery/delete/:id
 router.delete("/delete/:id", (req, res) => {
     const galleryId = req.params.id;
     const query = `DELETE FROM "gallery" WHERE "id"=$1;`;
@@ -63,6 +67,6 @@ router.delete("/delete/:id", (req, res) => {
             console.log("Error in DELETE by ID: ", error);
             res.sendStatus(500);
         });
-});
+}); // END DELETE ROUTE
 
 module.exports = router;

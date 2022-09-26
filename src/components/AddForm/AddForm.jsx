@@ -1,12 +1,17 @@
 import Axios from "axios";
 import {useState} from "react";
 
+// This function will display or hide an "add a photo" form
+// with text inputs for the img url, a title and a description of the photo
+// It will also do a POST with the new information and add it to the database
 function AddForm(props) {
+    // Local states used to hold inputs and if form should be displayed
     const [toggleAddForm, setToggleAddForm] = useState(true);
     let [newImgPath, setNewImgPath] = useState("");
     let [newTitle, setNewTitle] = useState("");
     let [newDescription, setNewDescription] = useState("");
 
+    // svg icon used in the "add photo" button
     const addIcon = (
         <svg 
             xmlns="http://www.w3.org/2000/svg" 
@@ -18,6 +23,8 @@ function AddForm(props) {
         </svg>
     )
 
+    // This function will check if any of the 3 text inputs were empty
+    // otherwise it calls the addNewPhoto function
     const handleSubmit = () => {
         if (!newImgPath || !newTitle || !newDescription) {
             alert('All three fields are required!');
@@ -26,6 +33,9 @@ function AddForm(props) {
         };
     }
 
+    // This function will perform a POST with the new
+    // photos infomation
+    // It will then clear the inputs and hide the "add form"
     const addNewPhoto = () => {
       Axios.post("/gallery", {
         path: newImgPath,
@@ -43,10 +53,15 @@ function AddForm(props) {
         });
     };
 
+    // This function will change the local state for toggleAddForm to the opposite
+    // of what it currently is
     function toggle() {
         setToggleAddForm(!toggleAddForm);
     }
     
+    // Determines what should be rendered depending on the toggle's
+    // current state
+    // If the toggle is false, then display the form and inputs
     if(!toggleAddForm) {
         return (
             <>
@@ -71,13 +86,13 @@ function AddForm(props) {
                 onChange={(event) => setNewDescription(event.target.value)}>
             </input>
             <div className="addFormBtnDiv">
-                <button className='addFormBtn' onClick={handleSubmit}>Add</button>
+                <button className='addFormBtn submitBtn' onClick={handleSubmit}>Add</button>
                 <button className='addFormBtn cancelBtn' onClick={() => {toggle()}}>Cancel</button>
             </div>
             </>
             
         )
-    }  else {
+    }  else { // if the toggle is true then do NOT display the form and display a button to show the form
         return (
             <>
             <button onClick={() => {toggle()}} className="addBtn">
